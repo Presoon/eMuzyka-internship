@@ -4,6 +4,7 @@ using AutoMapper;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Entities;
+using eMuzyka.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -34,7 +35,7 @@ namespace eMuzyka.Services
                 .Include(r => r.Albums)
                 .FirstOrDefault(r => r.Id == id);
 
-            if (provider is null) return null;
+            if (provider is null) throw new NotFoundException("Provider not found!");
 
             var result = _mapper.Map<ProviderDto>(provider);
             return result;
