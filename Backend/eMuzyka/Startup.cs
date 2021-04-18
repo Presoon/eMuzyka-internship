@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMuzyka.Database;
 
 namespace eMuzyka
 {
@@ -28,6 +29,8 @@ namespace eMuzyka
         {
 
             services.AddControllers();
+            services.AddDbContext<DatabaseContext>();
+            services.AddScoped<DatabaseSeeder>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
@@ -35,8 +38,11 @@ namespace eMuzyka
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseSeeder seeder)
         {
+
+            seeder.Seed();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
