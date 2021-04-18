@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Database;
+using eMuzyka.Middleware;
 using eMuzyka.Services;
 
 namespace eMuzyka
@@ -34,6 +35,7 @@ namespace eMuzyka
             services.AddScoped<DatabaseSeeder>();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddScoped<IProviderService, ProviderService>();
+            services.AddScoped<ErrorHandlingMiddleware>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
@@ -52,6 +54,8 @@ namespace eMuzyka
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "eMuzyka v1"));
             }
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
 
