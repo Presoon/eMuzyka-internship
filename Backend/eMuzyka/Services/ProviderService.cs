@@ -4,6 +4,7 @@ using AutoMapper;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace eMuzyka.Services
 {
@@ -27,6 +28,7 @@ namespace eMuzyka.Services
         {
             var provider = _dbContext
                 .Providers
+                .Include(r => r.Albums)
                 .FirstOrDefault(r => r.Id == id);
 
             if (provider is null) return null;

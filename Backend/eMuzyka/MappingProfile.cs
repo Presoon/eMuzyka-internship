@@ -8,7 +8,8 @@ namespace eMuzyka
     {
         public MappingProfile()
         {
-            CreateMap<Provider, ProviderDto>();
+            CreateMap<Provider, ProviderDto>().ReverseMap();
+            CreateMap<Album, AlbumDto>().ReverseMap();
         }
     }
 }
