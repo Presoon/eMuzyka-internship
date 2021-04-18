@@ -5,6 +5,7 @@ using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace eMuzyka.Services
 {
@@ -18,11 +19,13 @@ namespace eMuzyka.Services
     {
         private readonly DatabaseContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly ILogger<ProviderService> _logger;
 
-        public ProviderService(DatabaseContext dbContext, IMapper mapper)
+        public ProviderService(DatabaseContext dbContext, IMapper mapper, ILogger<ProviderService> logger)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _logger = logger;
         }
         public ProviderDto GetById(int id)
         {
@@ -39,6 +42,8 @@ namespace eMuzyka.Services
 
         public IEnumerable<ProviderDto> GetAll()
         {
+            _logger.LogInformation("Get All Providers method on API");
+
             var providers = _dbContext
                 .Providers
                 .ToList();
