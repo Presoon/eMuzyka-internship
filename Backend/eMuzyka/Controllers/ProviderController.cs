@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Database;
+using eMuzyka.DTO.Provider;
 using eMuzyka.Entities;
+using eMuzyka.Services;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace eMuzyka.Controllers
@@ -13,17 +16,29 @@ namespace eMuzyka.Controllers
     [Route("[controller]")]
     public class ProviderController : ControllerBase
     {
-        private readonly DatabaseContext _dbContext;
+        private readonly IProviderService _providerService;
 
-        public ProviderController(DatabaseContext dbContext)
+        public ProviderController(IProviderService providerService)
         {
-            _dbContext = dbContext;
+            _providerService = providerService;
         }
+
+
         [Route("all")]
-        public ActionResult<IEnumerable<Provider>> GetAll()
+        public ActionResult<IEnumerable<ProviderDto>> GetAll()
         {
-            var providers = _dbContext.Providers.ToList();
-            return Ok(providers);
+            var result = _providerService.GetAll();
+            return Ok(result);
+        }
+
+        [Route("{id}")]
+        public ActionResult<ProviderDto> GetById([FromRoute]int id)
+        {
+            var result = _providerService.GetById(id);
+
+            if (result is null) return NotFound();
+                
+            return Ok(result);
         }
     }
 }
