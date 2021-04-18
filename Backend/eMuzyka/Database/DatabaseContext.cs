@@ -7,12 +7,12 @@ using Microsoft.Extensions.Configuration;
 
 namespace eMuzyka.Database
 {
-    public class DbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class DatabaseContext : DbContext
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
 
-        public DbContext(IConfiguration configuration)
+        public DatabaseContext(IConfiguration configuration)
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("connStringAzure");
