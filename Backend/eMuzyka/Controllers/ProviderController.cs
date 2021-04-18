@@ -23,14 +23,16 @@ namespace eMuzyka.Controllers
             _providerService = providerService;
         }
 
-
+        [HttpGet]
         [Route("all")]
+
         public ActionResult<IEnumerable<ProviderDto>> GetAll()
         {
             var result = _providerService.GetAll();
             return Ok(result);
         }
 
+        [HttpGet]
         [Route("{id}")]
         public ActionResult<ProviderDto> GetById([FromRoute]int id)
         {
