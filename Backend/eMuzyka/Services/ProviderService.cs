@@ -42,7 +42,7 @@ namespace eMuzyka.Services
 
         public IEnumerable<ProviderDto> GetAll()
         {
-            _logger.LogInformation("Get All Providers method on API");
+            _logger.LogInformation("Get All Providers method invoked");
 
             var providers = _dbContext
                 .Providers
