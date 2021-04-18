@@ -31,6 +31,7 @@ namespace eMuzyka
             services.AddControllers();
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<DatabaseSeeder>();
+            services.AddAutoMapper(this.GetType().Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
