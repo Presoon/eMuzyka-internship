@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Database;
+using eMuzyka.Services;
 
 namespace eMuzyka
 {
@@ -32,6 +33,7 @@ namespace eMuzyka
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<DatabaseSeeder>();
             services.AddAutoMapper(this.GetType().Assembly);
+            services.AddScoped<IProviderService, ProviderService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
