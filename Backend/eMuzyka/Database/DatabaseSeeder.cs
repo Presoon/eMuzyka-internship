@@ -46,6 +46,7 @@ namespace eMuzyka.Database
                             {
                                 new Track()
                                 {
+                                    TrackNumber = 1,
                                     Title = "Speak to Me/Breathe",
                                     ArtistName = "Pink Floyd",
                                     Duration = 237,
@@ -53,6 +54,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 2,
                                     Title = "On the Run",
                                     ArtistName = "Pink Floyd",
                                     Duration = 230,
@@ -60,6 +62,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 3,
                                     Title = "Time",
                                     ArtistName = "Pink Floyd",
                                     Duration = 409,
@@ -67,6 +70,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 4,
                                     Title = "The Great Gig in the Sky",
                                     ArtistName = "Pink Floyd",
                                     Duration = 284,
@@ -74,6 +78,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 5,
                                     Title = "Money",
                                     ArtistName = "Pink Floyd",
                                     Duration = 382,
@@ -81,6 +86,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 6,
                                     Title = "Us and Them",
                                     ArtistName = "Pink Floyd",
                                     Duration = 469,
@@ -88,6 +94,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 7,
                                     Title = "Any Colour You Like",
                                     ArtistName = "Pink Floyd",
                                     Duration = 206,
@@ -95,6 +102,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 8,
                                     Title = "Brain Damage",
                                     ArtistName = "Pink Floyd",
                                     Duration = 226,
@@ -102,6 +110,7 @@ namespace eMuzyka.Database
                                 },
                                 new Track()
                                 {
+                                    TrackNumber = 9,
                                     Title = "Eclipse",
                                     ArtistName = "Pink Floyd",
                                     Duration = 131,
