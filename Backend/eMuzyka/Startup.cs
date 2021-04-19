@@ -12,8 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Database;
+using eMuzyka.Entities;
 using eMuzyka.Middleware;
 using eMuzyka.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace eMuzyka
 {
@@ -29,14 +31,21 @@ namespace eMuzyka
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+
+            //db context & seeder
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<DatabaseSeeder>();
-            services.AddAutoMapper(this.GetType().Assembly);
+
+            //services 
             services.AddScoped<IProviderService, ProviderService>();
             services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IPasswordHasher<Provider>, PasswordHasher<Provider>>();
+            //middleware
             services.AddScoped<ErrorHandlingMiddleware>();
+
+            services.AddAutoMapper(this.GetType().Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
