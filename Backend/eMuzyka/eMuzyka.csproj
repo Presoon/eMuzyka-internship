@@ -16,9 +16,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\Album\" />
-    <Folder Include="DTO\Track\" />
-  </ItemGroup>
-
 </Project>

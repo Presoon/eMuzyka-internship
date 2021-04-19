@@ -35,6 +35,7 @@ namespace eMuzyka
             services.AddScoped<DatabaseSeeder>();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddScoped<IProviderService, ProviderService>();
+            services.AddScoped<IAlbumService, AlbumService>();
             services.AddScoped<ErrorHandlingMiddleware>();
             services.AddSwaggerGen(c =>
             {
