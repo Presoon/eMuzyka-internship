@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
+using eMuzyka.DTO.Track;
 using eMuzyka.Entities;
 
 namespace eMuzyka
@@ -13,6 +14,10 @@ namespace eMuzyka
 
             CreateMap<Album, AlbumDto>().ReverseMap();
             CreateMap<Album, AlbumWTracksDto>().ReverseMap();
+
+            CreateMap<Track, TrackDto>().ReverseMap();
+
+            
         }
     }
 }
