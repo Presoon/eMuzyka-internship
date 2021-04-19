@@ -12,9 +12,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Database;
+using eMuzyka.DTO.Provider;
+using eMuzyka.DTO.Validators;
 using eMuzyka.Entities;
 using eMuzyka.Middleware;
 using eMuzyka.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 
 namespace eMuzyka
@@ -28,10 +32,10 @@ namespace eMuzyka
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation();
 
             //db context & seeder
             services.AddDbContext<DatabaseContext>();
@@ -41,9 +45,13 @@ namespace eMuzyka
             services.AddScoped<IProviderService, ProviderService>();
             services.AddScoped<IAlbumService, AlbumService>();
             services.AddScoped<IAccountService, AccountService>();
+
             services.AddScoped<IPasswordHasher<Provider>, PasswordHasher<Provider>>();
+            services.AddScoped<IValidator<RegisterProviderDto>, RegisterProviderDtoValidator>();
+
             //middleware
             services.AddScoped<ErrorHandlingMiddleware>();
+
 
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddSwaggerGen(c =>
@@ -51,8 +59,8 @@ namespace eMuzyka
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
             });
         }
+        
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseSeeder seeder)
         {
 
