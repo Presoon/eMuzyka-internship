@@ -8,6 +8,7 @@ namespace eMuzyka.Entities
     public class Track
     {
         public int Id { get; set; }
+        public int TrackNumber { get; set; }
         public string ArtistName { get; set; }
         public string Title { get; set; }
         public DateTime ReleaseDate { get; set; }
