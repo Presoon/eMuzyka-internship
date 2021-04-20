@@ -24,9 +24,16 @@ namespace eMuzyka.Controllers
         [Route("register")]
         public ActionResult RegisterProvider([FromBody] RegisterProviderDto registerProvider)
         {
-
             _accountService.RegisterProvider(registerProvider);
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public ActionResult LoginProvider([FromBody] LoginProviderDto dto)
+        {
+            var token = _accountService.GenerateJwt(dto);
+            return Ok(token);
         }
 
     }
