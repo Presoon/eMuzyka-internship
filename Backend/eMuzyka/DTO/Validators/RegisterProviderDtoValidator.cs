@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+
 
 namespace eMuzyka.DTO.Validators
 {

@@ -5,7 +5,8 @@ using System.Linq;
 
 using System.Threading.Tasks;
 
-namespace eMuzyka.Entities
+
+namespace eMuzyka.Domain.Entities
 {
     public class Album
     {

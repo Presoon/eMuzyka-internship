@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using eMuzyka.Database;
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
-using eMuzyka.Entities;
 using eMuzyka.Services;
 
 

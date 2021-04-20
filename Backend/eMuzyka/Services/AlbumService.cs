@@ -4,7 +4,7 @@ using AutoMapper;
 using eMuzyka.Database;
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
-using eMuzyka.Entities;
+
 using eMuzyka.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

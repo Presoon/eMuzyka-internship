@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.DTO.Validators;
-using eMuzyka.Entities;
+using eMuzyka.Domain.Entities;
 using eMuzyka.Middleware;
 using eMuzyka.Services;
 using FluentValidation;

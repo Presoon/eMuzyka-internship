@@ -3,11 +3,10 @@ using System.Linq;
 using AutoMapper;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
-using eMuzyka.Entities;
+using eMuzyka.Domain.Entities;
 using eMuzyka.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
 namespace eMuzyka.Services
 {
     public interface IProviderService

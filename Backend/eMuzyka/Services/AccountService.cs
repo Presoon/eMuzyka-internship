@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using eMuzyka.Database;
 using eMuzyka.DTO.Provider;
-using eMuzyka.Entities;
+using eMuzyka.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
-using Microsoft.Extensions.Configuration;
+
 
 namespace eMuzyka.Services
 {

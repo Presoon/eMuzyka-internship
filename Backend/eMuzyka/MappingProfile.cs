@@ -2,7 +2,7 @@
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
 using eMuzyka.DTO.Track;
-using eMuzyka.Entities;
+using eMuzyka.Domain.Entities;
 
 namespace eMuzyka
 {
