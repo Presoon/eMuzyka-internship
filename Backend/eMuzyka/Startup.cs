@@ -10,7 +10,9 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using eMuzyka.Authentication;
 using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.DTO.Validators;
@@ -19,7 +21,9 @@ using eMuzyka.Middleware;
 using eMuzyka.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 namespace eMuzyka
 {
@@ -35,6 +39,29 @@ namespace eMuzyka
         
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //authentication
+            var authenticationSettings = new AuthenticationSettings();
+            Configuration.GetSection("Authentication").Bind(authenticationSettings);
+
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = "Bearer";
+                option.DefaultScheme = "Bearer";
+                option.DefaultChallengeScheme = "Bearer";
+            }).AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = authenticationSettings.JwtIssuer,
+                    ValidAudience = authenticationSettings.JwtIssuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings.JwtKey))
+                };
+            });
+
+            //controllers & validation
             services.AddControllers().AddFluentValidation();
 
             //db context & seeder
@@ -74,6 +101,8 @@ namespace eMuzyka
             }
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
+
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 
