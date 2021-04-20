@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
 

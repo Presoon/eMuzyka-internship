@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace eMuzyka.Migrations
+namespace eMuzyka.Infrastructure.Migrations
 {
     public partial class AddTrackNumbersInAlbums : Migration
     {

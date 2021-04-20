@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Domain.Entities;
 using Microsoft.AspNetCore.Identity;

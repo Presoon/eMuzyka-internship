@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 
-namespace eMuzyka.Migrations
+namespace eMuzyka.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20210418122036_Init-Database")]

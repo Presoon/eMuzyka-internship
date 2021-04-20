@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eMuzyka.DTO.Provider
+namespace eMuzyka.DTO.Album
 {
     public class AlbumDto
     {

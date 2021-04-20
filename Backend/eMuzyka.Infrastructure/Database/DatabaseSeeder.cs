@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eMuzyka.Domain.Entities;
 
-namespace eMuzyka.Database
+namespace eMuzyka.Infrastructure.Database
 {
     public class DatabaseSeeder
     {

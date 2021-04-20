@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace eMuzyka.Database
+namespace eMuzyka.Infrastructure.Database
 {
     public class DatabaseContext : DbContext
     {

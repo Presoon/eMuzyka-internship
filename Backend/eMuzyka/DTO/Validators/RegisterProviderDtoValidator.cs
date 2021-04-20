@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Provider;
 using FluentValidation;
 

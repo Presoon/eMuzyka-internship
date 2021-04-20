@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.DTO.Validators;
 using eMuzyka.Domain.Entities;

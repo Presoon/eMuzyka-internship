@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using eMuzyka.Database;
+using eMuzyka.Infrastructure.Database;
 
-namespace eMuzyka.Migrations
+namespace eMuzyka.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210419080541_AddTrackNumbersInAlbums")]
-    partial class AddTrackNumbersInAlbums
+    [Migration("20210419101859_Change-DateType")]
+    partial class ChangeDateType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,7 @@ namespace eMuzyka.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -100,7 +100,7 @@ namespace eMuzyka.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
