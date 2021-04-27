@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using eMuzyka.Authentication;
+using eMuzyka.Authorization;
 using eMuzyka.Infrastructure.Database;
 using eMuzyka.DTO.Provider;
 using eMuzyka.DTO.Validators;
@@ -22,6 +23,7 @@ using eMuzyka.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
@@ -61,6 +63,8 @@ namespace eMuzyka
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings.JwtKey))
                 };
             });
+
+            services.AddScoped<IAuthorizationHandler, ResourceOperationRequirementHandler>();
 
             //controllers & validation
             services.AddControllers().AddFluentValidation();
