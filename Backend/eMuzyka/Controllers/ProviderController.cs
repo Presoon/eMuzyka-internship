@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Services;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace eMuzyka.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ProviderController : ControllerBase

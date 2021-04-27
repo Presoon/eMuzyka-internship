@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Security.Claims;
 using eMuzyka.DTO.Album;
 using eMuzyka.DTO.Provider;
 using eMuzyka.Services;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace eMuzyka.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class AlbumController : ControllerBase
@@ -20,10 +23,10 @@ namespace eMuzyka.Controllers
 
 
         [HttpGet]
-        [Route("{id}/all")]
+        [Route("provider/{id}")]
         public ActionResult<IEnumerable<AlbumDto>> GetAllByProviderId([FromRoute] int id)
         {
-            var result = _albumService.GetAllByProviderId(id);
+            var result = _albumService.GetAllByProviderId(id, User);
             return Ok(result);
         }
 
@@ -32,7 +35,7 @@ namespace eMuzyka.Controllers
         [Route("{id}")]
         public ActionResult<AlbumDto> GetById([FromRoute]int id)
         {
-            var result = _albumService.GetById(id);
+            var result = _albumService.GetById(id, User);
             return Ok(result);
         }
 
@@ -41,7 +44,7 @@ namespace eMuzyka.Controllers
         [Route("{id}/tracks")]
         public ActionResult<AlbumWTracksDto> GetWithTracksById([FromRoute] int id)
         {
-            var result = _albumService.GetWithTracksById(id);
+            var result = _albumService.GetWithTracksById(id, User);
             return Ok(result);
         }
     }
