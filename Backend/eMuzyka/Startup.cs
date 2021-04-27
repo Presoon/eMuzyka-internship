@@ -77,6 +77,7 @@ namespace eMuzyka
             services.AddScoped<IProviderService, ProviderService>();
             services.AddScoped<IAlbumService, AlbumService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IUserContextService, UserContextService>();
 
             services.AddScoped<IPasswordHasher<Provider>, PasswordHasher<Provider>>();
             services.AddScoped<IValidator<RegisterProviderDto>, RegisterProviderDtoValidator>();
@@ -84,7 +85,7 @@ namespace eMuzyka
             //middleware
             services.AddScoped<ErrorHandlingMiddleware>();
 
-
+            services.AddHttpContextAccessor();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddSwaggerGen(c =>
             {
