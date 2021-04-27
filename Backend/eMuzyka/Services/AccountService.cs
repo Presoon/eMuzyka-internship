@@ -74,6 +74,7 @@ namespace eMuzyka.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim("Personal Info", $"{user.Name} {user.LastName}"),
+                new Claim("Email", $"{user.Email}"),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authSettings.JwtKey));
