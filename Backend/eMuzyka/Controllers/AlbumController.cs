@@ -26,7 +26,7 @@ namespace eMuzyka.Controllers
         [Route("provider/{id}")]
         public ActionResult<IEnumerable<AlbumDto>> GetAllByProviderId([FromRoute] int id)
         {
-            var result = _albumService.GetAllByProviderId(id, User);
+            var result = _albumService.GetAllByProviderId(id);
             return Ok(result);
         }
 
@@ -35,7 +35,7 @@ namespace eMuzyka.Controllers
         [Route("{id}")]
         public ActionResult<AlbumDto> GetById([FromRoute]int id)
         {
-            var result = _albumService.GetById(id, User);
+            var result = _albumService.GetById(id);
             return Ok(result);
         }
 
@@ -44,7 +44,7 @@ namespace eMuzyka.Controllers
         [Route("{id}/tracks")]
         public ActionResult<AlbumWTracksDto> GetWithTracksById([FromRoute] int id)
         {
-            var result = _albumService.GetWithTracksById(id, User);
+            var result = _albumService.GetWithTracksById(id);
             return Ok(result);
         }
     }

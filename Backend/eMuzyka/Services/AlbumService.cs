@@ -16,9 +16,9 @@ namespace eMuzyka.Services
 {
     public interface IAlbumService
     {
-        AlbumDto GetById(int id, ClaimsPrincipal user);
-        AlbumWTracksDto GetWithTracksById(int id, ClaimsPrincipal user);
-        IEnumerable<AlbumDto> GetAllByProviderId(int id, ClaimsPrincipal user);
+        AlbumDto GetById(int id);
+        AlbumWTracksDto GetWithTracksById(int id);
+        IEnumerable<AlbumDto> GetAllByProviderId(int id);
     }
 
     public class AlbumService : IAlbumService
@@ -27,15 +27,18 @@ namespace eMuzyka.Services
         private readonly IMapper _mapper;
         private readonly ILogger<ProviderService> _logger;
         private readonly IAuthorizationService _authorizationService;
+        private readonly IUserContextService _userContextService;
 
-        public AlbumService(DatabaseContext dbContext, IMapper mapper, ILogger<ProviderService> logger, IAuthorizationService authorizationService)
+        public AlbumService(DatabaseContext dbContext, IMapper mapper, ILogger<ProviderService> logger, 
+            IAuthorizationService authorizationService, IUserContextService userContextService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _logger = logger;
             _authorizationService = authorizationService;
+            _userContextService = userContextService;
         }
-        public AlbumDto GetById(int id, ClaimsPrincipal user)
+        public AlbumDto GetById(int id)
         { 
             var album = _dbContext
                 .Albums
@@ -44,7 +47,7 @@ namespace eMuzyka.Services
             if (album is null) throw new NotFoundException($"Album with id: {id} not found!");
 
             var authorizationResult = _authorizationService
-                .AuthorizeAsync(user, album, new ResourceOperationRequirement()).Result;
+                .AuthorizeAsync(_userContextService.User, album, new ResourceOperationRequirement()).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException();
 
@@ -52,7 +55,7 @@ namespace eMuzyka.Services
             return result;
         }
 
-        public AlbumWTracksDto GetWithTracksById(int id, ClaimsPrincipal user)
+        public AlbumWTracksDto GetWithTracksById(int id)
         {
             var album = _dbContext
                 .Albums
@@ -62,7 +65,7 @@ namespace eMuzyka.Services
             if (album is null) throw new NotFoundException($"Album with id: {id} not found!");
 
             var authorizationResult = _authorizationService
-                .AuthorizeAsync(user, album, new ResourceOperationRequirement()).Result;
+                .AuthorizeAsync(_userContextService.User, album, new ResourceOperationRequirement()).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException();
 
@@ -71,7 +74,7 @@ namespace eMuzyka.Services
         }
 
 
-        public IEnumerable<AlbumDto> GetAllByProviderId(int id, ClaimsPrincipal user)
+        public IEnumerable<AlbumDto> GetAllByProviderId(int id)
         {
             _logger.LogInformation("Get all Provider's Albums method invoked");
 
@@ -84,7 +87,7 @@ namespace eMuzyka.Services
 
 
             var authorizationResult = _authorizationService
-                .AuthorizeAsync(user, albums, new ResourceOperationRequirement()).Result;
+                .AuthorizeAsync(_userContextService.User, albums, new ResourceOperationRequirement()).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException();
 
