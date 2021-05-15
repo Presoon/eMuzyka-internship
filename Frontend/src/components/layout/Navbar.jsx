@@ -7,9 +7,9 @@ const Navbar = () => {
   const user = AuthService.getCurrentUser();
   return (
     <nav className="navbar navbar-expand-sm bg-light navbar-light sticky-top">
-      <a className="navbar-brand" href="/">
+      <Link className="navbar-brand" to="/">
         <h1 className="title-navbar">e-Muzyka</h1>
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -24,40 +24,42 @@ const Navbar = () => {
       >
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link navlink" href="/">
+            <Link className="nav-link navlink" to="/">
               Strona Główna
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link navlink" href="/albumy">
+            <Link className="nav-link navlink" to="/albumy">
               Twoje Albumy
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link navlink " href="/rejestracja">
+            <Link className="nav-link navlink " to="/rejestracja">
               Rejestracja albumu
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link navlink " href="/kontakt">
+            <Link className="nav-link navlink " to="/kontakt">
               Kontakt
-            </a>
+            </Link>
           </li>
           {user === null ? (
             <li className="nav-item">
-            <a className="button-custom button-gradient" href="/login">
+              <Link className="button-custom button-gradient" to="/login">
                 <i className="fa fa-users mr-2" aria-hidden="true"></i>
                 Zaloguj
-            </a>
+              </Link>
             </li>
           ) : (
             <li className="nav-item">
+              <Link
                 className="button-custom button-gradient"
                 to="/logout"
                 
               >
                 <i className="fa fa-users mr-2" aria-hidden="true"></i>
                 Wyloguj
+              </Link>
             </li>
           )}
         </ul>
