@@ -1,7 +1,7 @@
 import "../../assets/css/App.css";
 import React from "react";
 import AuthService from "../../services/auth.service.js"
-import {Link} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 
 const Navbar = () => {
   const user = AuthService.getCurrentUser();
@@ -24,24 +24,41 @@ const Navbar = () => {
       >
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link navlink" to="/">
+            <NavLink
+              className="nav-link navlink"
+              exact
+              to="/"
+              activeClassName="selectedd"
+            >
               Strona Główna
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link navlink" to="/albumy">
+            <NavLink
+              className="nav-link navlink"
+              to="/albumy"
+              activeClassName="selectedd"
+            >
               Twoje Albumy
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link navlink " to="/rejestracja">
+            <NavLink
+              className="nav-link navlink "
+              to="/rejestracja"
+              activeClassName="selectedd"
+            >
               Rejestracja albumu
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link navlink " to="/kontakt">
+            <NavLink
+              className="nav-link navlink "
+              to="/kontakt"
+              activeClassName="selectedd"
+            >
               Kontakt
-            </Link>
+            </NavLink>
           </li>
           {user === null ? (
             <li className="nav-item">
@@ -52,11 +69,7 @@ const Navbar = () => {
             </li>
           ) : (
             <li className="nav-item">
-              <Link
-                className="button-custom button-gradient"
-                to="/logout"
-                
-              >
+              <Link className="button-custom button-gradient" to="/logout">
                 <i className="fa fa-users mr-2" aria-hidden="true"></i>
                 Wyloguj
               </Link>
