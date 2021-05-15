@@ -86,6 +86,15 @@ namespace eMuzyka
             //middleware
             services.AddScoped<ErrorHandlingMiddleware>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("FrontendClient", builder =>
+                    builder.AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin()
+                    );
+            });
+
             services.AddHttpContextAccessor();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddSwaggerGen(c =>
@@ -97,7 +106,7 @@ namespace eMuzyka
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseSeeder seeder)
         {
-
+            app.UseCors("FrontendClient");
             seeder.Seed();
 
             if (env.IsDevelopment())
