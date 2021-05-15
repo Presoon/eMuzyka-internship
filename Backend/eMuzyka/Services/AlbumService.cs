@@ -87,7 +87,7 @@ namespace eMuzyka.Services
 
 
             var authorizationResult = _authorizationService
-                .AuthorizeAsync(_userContextService.User, albums, new ResourceOperationRequirement()).Result;
+                .AuthorizeAsync(_userContextService.User, id, new ResourceOperationRequirement()).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException();
 

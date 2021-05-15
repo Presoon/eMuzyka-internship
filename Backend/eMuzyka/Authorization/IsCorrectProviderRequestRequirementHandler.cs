@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace eMuzyka.Authorization
 {
-    public class ResourceOperationRequirementHandler : AuthorizationHandler<ResourceOperationRequirement, Album>
+    public class IsCorrectProviderRequestRequirementHandler : AuthorizationHandler<ResourceOperationRequirement, int>
     {
         protected override Task HandleRequirementAsync(
             AuthorizationHandlerContext context, 
             ResourceOperationRequirement requirement,
-            Album album)
+            int id)
         {
             var userId = context.User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            if (album.ProviderId == int.Parse(userId))
+            if (id == int.Parse(userId))
             {
                 context.Succeed(requirement);
             }

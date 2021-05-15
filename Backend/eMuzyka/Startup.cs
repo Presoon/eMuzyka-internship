@@ -64,7 +64,8 @@ namespace eMuzyka
                 };
             });
 
-            services.AddScoped<IAuthorizationHandler, ResourceOperationRequirementHandler>();
+            services.AddScoped<IAuthorizationHandler, IsProvidersAlbumRequirementHandler>();
+            services.AddScoped<IAuthorizationHandler, IsCorrectProviderRequestRequirementHandler>();
 
             //controllers & validation
             services.AddControllers().AddFluentValidation();
