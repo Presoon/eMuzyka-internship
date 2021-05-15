@@ -10,8 +10,8 @@ class AuthService {
         password,
       })
       .then((response) => {
-        if (response.data.token) {
-          sessionStorage.setItem("user", JSON.stringify(response.data));
+        if (response.data) {
+          sessionStorage.setItem("token", response.data);
         }
 
         return response.data;
@@ -19,7 +19,7 @@ class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("token");
   }
 
   register(username, email, password) {
@@ -31,7 +31,8 @@ class AuthService {
   }
 
   getCurrentUser() {
-    return JSON.parse(sessionStorage.getItem("user"));
+    
+    return sessionStorage.getItem("token");
   }
 }
 

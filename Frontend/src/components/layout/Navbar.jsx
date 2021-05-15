@@ -1,7 +1,10 @@
 import "../../assets/css/App.css";
 import React from "react";
+import AuthService from "../../services/auth.service.js"
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
+  const user = AuthService.getCurrentUser();
   return (
     <nav className="navbar navbar-expand-sm bg-light navbar-light sticky-top">
       <a className="navbar-brand" href="/">
@@ -40,12 +43,23 @@ const Navbar = () => {
               Kontakt
             </a>
           </li>
-          <li className="nav-item">
+          {user === null ? (
+            <li className="nav-item">
             <a className="button-custom button-gradient" href="/login">
-              <i className="fa fa-users mr-2" aria-hidden="true"></i>
-              Login
+                <i className="fa fa-users mr-2" aria-hidden="true"></i>
+                Zaloguj
             </a>
-          </li>
+            </li>
+          ) : (
+            <li className="nav-item">
+                className="button-custom button-gradient"
+                to="/logout"
+                
+              >
+                <i className="fa fa-users mr-2" aria-hidden="true"></i>
+                Wyloguj
+            </li>
+          )}
         </ul>
       </div>
     </nav>

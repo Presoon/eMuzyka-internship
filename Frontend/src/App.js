@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer";
 import NoPage from "./pages/404";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login.js";
+import Logout from "./pages/Logout";
 
 const App = () => {
   return (
@@ -16,8 +17,8 @@ const App = () => {
         <Navbar />
         <Header />
         <Switch>
-          
           <Route path="/login" exact component={Login} />
+          <Route path="/logout" exact component={Logout} />
           <Route component={NoPage} />
         </Switch>
         <Footer />
