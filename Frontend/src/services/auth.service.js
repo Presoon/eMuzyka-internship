@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://api.seev.pro:5000/";
+const API_URL = "http://localhost:5000/account/";
 
 class AuthService {
-  login(login, password) {
+  login(username, password) {
     return axios
-      .post(API_URL + "authenticate", {
-        login,
+      .post(API_URL + "login", {
+        username,
         password,
       })
       .then((response) => {
