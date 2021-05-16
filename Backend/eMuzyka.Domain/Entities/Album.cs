@@ -18,6 +18,7 @@ namespace eMuzyka.Domain.Entities
         [Column(TypeName = "Date")]
         public DateTime ReleaseDate { get; set; }
 
+        public string Cover { get; set; }
 
         public int ProviderId { get; set; }
         public virtual Provider Provider { get; set; }

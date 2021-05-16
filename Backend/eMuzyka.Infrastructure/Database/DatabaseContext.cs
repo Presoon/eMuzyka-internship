@@ -33,7 +33,7 @@ namespace eMuzyka.Infrastructure.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder.UseSqlServer(_connectionString, b => b.MigrationsAssembly("eMuzyka.Infrastructure"));
         }
     }
 }

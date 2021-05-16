@@ -42,6 +42,7 @@ namespace eMuzyka.Infrastructure.Database
                             Title = "The Dark Side of the Moon",
                             ReleaseDate = new DateTime(1973, 3, 1),
                             Version = "Standard",
+                            Cover = "https://www.muzart.pl/images/the-dark-side-of-the-moon-b-iext35454968.jpg",
                             Tracks = new List<Track>()
                             {
                                 new Track()

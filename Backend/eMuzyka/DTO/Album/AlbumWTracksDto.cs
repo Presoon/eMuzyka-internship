@@ -11,7 +11,7 @@ namespace eMuzyka.DTO.Album
         public string ArtistName { get; set; }
         public string Version { get; set; }
         public DateTime ReleaseDate { get; set; }
-
+        public string Cover { get; set; }
         public List<TrackDto> Tracks { get; set; }
     }
 }
