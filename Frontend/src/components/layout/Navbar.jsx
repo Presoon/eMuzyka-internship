@@ -6,7 +6,7 @@ import {NavLink, Link} from "react-router-dom";
 const Navbar = () => {
   const user = AuthService.getCurrentUser();
   return (
-    <nav className="navbar navbar-expand-sm bg-light navbar-light sticky-top">
+    <nav className="navbar navbar-expand-md bg-light navbar-light sticky-top">
       <Link className="navbar-brand" to="/">
         <h1 className="title-navbar">e-Muzyka</h1>
       </Link>

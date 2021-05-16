@@ -8,7 +8,7 @@ const Header = () => {
     <div className="headerx text-center mb-5">
       <div className="container">
         <div className="row">
-          <div className="col-md-8 col-sm-12 text-center p-3 my-auto">
+          <div className="col-md-8 col-sm-12 text-center p-5 my-auto">
             <span className="header-title mb-0">Naszą siłą jest muzyka</span>
             <br />
             <p className="">Sprawdź naszą ofertę!</p>

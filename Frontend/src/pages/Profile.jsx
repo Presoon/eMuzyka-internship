@@ -1,7 +1,24 @@
 import "../assets/css/App.css";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import API from "../services/APIcontext.js"
 
 const Profile = () => {
+    const [provider, setProvider] = useState("");
+    useEffect(() => {
+      const fetchData = async () => {
+        const result = await API.getProviderInfo().catch((err) => {
+          console.error(err);
+          var data = 0;
+          return data;
+        });
+        setProvider(result.data);
+      };
+
+      fetchData();
+    }, []);
+
+  
+
   return (
     <div className="container">
       <div className="row">
@@ -9,53 +26,90 @@ const Profile = () => {
           Informacje dotyczące profilu
         </h1>
       </div>
-      <div className="row justify-content-center">
-        <div className="col-md-9 col-lg-12 col-xl-10">
-          <div className="card shadow-lg o-hidden border-0 my-5">
-            <div className="card-body p-0">
-              <div className="row">
-                <div className="col-lg-6 d-none d-lg-flex">
-                  <div className="p-5">
-                    <div className="text-center">
-                      <h4 className="text-dark mb-4">Aplikacja e-Muzyka</h4>
-                      <div className="text-left">
-                        <p>
-                          Aplikacja stworzona na potrzeby procesu rekrutacji na
-                          stanowisko stażysty w firmie EUVIC. <br />
-                          Frontend aplikacji napisany został we frameworku
-                          React.JS, natomiast Backend implementuje REST API w
-                          technologii ASP.NET Core.
-                        </p>
+      {provider && (
+        <div className="row justify-content-center">
+          <div className="col-md-9 col-lg-12 col-xl-10">
+            <div className="card shadow-lg o-hidden border-0 my-5">
+              <div className="card-body p-0">
+                <div className="row">
+                  <div className="col-md-4">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <div className="d-flex flex-column align-items-center text-center">
+                          <img
+                            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                            alt="Admin"
+                            className="rounded-circle"
+                            width="150"
+                          />
+                          <div className="mt-3">
+                            <h4>
+                              {provider.name}&nbsp;{provider.lastName}
+                            </h4>
+                            <p className="text-secondary mb-1">
+                              Dostawca muzyczny
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                      <br />
                     </div>
                   </div>
-                </div>
-                <div className="col-lg-6 d-none d-lg-flex">
-                  <div className="p-5">
-                    <div className="text-center">
-                      <h4 className="text-dark mb-4">
-                        Działania dostępne po zalogowaniu do panelu:
-                      </h4>
-                      <div className="text-left">
-                        <ul>
-                          <li>Przegląd zarejestrowanych albumów</li>
-                          <li>Szczegółowe informacje o albumie</li>
-                          <li>Lista tracków dostepnych w albumie</li>
-                          <li>Szczegółowe informacje o tracku</li>
-                          <li>Rejestracja albumów (wkrótce)</li>
-                        </ul>
+                  <div className="col-md-8">
+                    <div className="card">
+                      <div className="card-body">
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Id konta:</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {provider.id}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Login:</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {provider.userName}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Email:</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {provider.email}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Konto od:</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {provider.createdAt.toString().substring(0, 10)}
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <h6 className="mb-0">Albumy:</h6>
+                          </div>
+                          <div className="col-sm-9 text-secondary">
+                            {provider.albums.length}
+                          </div>
+                        </div>
                       </div>
-                      <br />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row"></div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

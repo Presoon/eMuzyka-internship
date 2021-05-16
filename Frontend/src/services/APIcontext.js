@@ -15,10 +15,10 @@ class API {
     });
   }
 
-
   //Provider functions
-
-  
+  getProviderInfo() {
+    return axios.get(API_URL + "provider/me", { headers: authHeader() });
+  }
 }
 
 export default new API();

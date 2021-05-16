@@ -10,28 +10,28 @@ const HomePage = () => {
         </h1>
       </div>
       <div className="row justify-content-center">
-        <div className="col-md-9 col-lg-12 col-xl-10">
+        <div className="col-sm-12 col-xl-10">
           <div className="card shadow-lg o-hidden border-0 my-5">
             <div className="card-body p-0">
               <div className="row">
-                <div className="col-lg-6 d-none d-lg-flex">
+                <div className="col-lg-6 col-sm-12 d-flex">
                   <div className="p-5">
                     <div className="text-center">
-                      <h4 className="text-dark mb-4">
-                        Aplikacja e-Muzyka
-                      </h4>
+                      <h4 className="text-dark mb-4">Aplikacja e-Muzyka</h4>
                       <div className="text-left">
                         <p>
-                            Aplikacja stworzona na potrzeby procesu rekrutacji na stanowisko stażysty w firmie EUVIC. <br />
-                            Frontend aplikacji napisany został we frameworku React.JS, 
-                            natomiast Backend implementuje REST API w technologii ASP.NET Core.   
+                          Aplikacja stworzona na potrzeby procesu rekrutacji na
+                          stanowisko stażysty w firmie EUVIC. <br />
+                          Frontend aplikacji napisany został we frameworku
+                          React.JS, natomiast Backend implementuje REST API w
+                          technologii ASP.NET Core.
                         </p>
                       </div>
                       <br />
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 d-none d-lg-flex">
+                <div className="col-lg-6 col-sm-12  d-flex">
                   <div className="p-5">
                     <div className="text-center">
                       <h4 className="text-dark mb-4">
@@ -51,9 +51,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                  
-              </div>
+              <div className="row"></div>
             </div>
           </div>
         </div>
