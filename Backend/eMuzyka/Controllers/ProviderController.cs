@@ -31,10 +31,10 @@ namespace eMuzyka.Controllers
 
 
         [HttpGet]
-        [Route("{id}")]
-        public ActionResult<ProviderDto> GetById([FromRoute]int id)
+        [Route("me")]
+        public ActionResult<ProviderDto> GetById()
         {
-            var result = _providerService.GetById(id);
+            var result = _providerService.GetFromUserContext();
             return Ok(result);
         }
     }

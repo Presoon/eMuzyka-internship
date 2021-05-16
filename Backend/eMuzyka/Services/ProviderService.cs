@@ -11,7 +11,7 @@ namespace eMuzyka.Services
 {
     public interface IProviderService
     {
-        ProviderDto GetById(int id);
+        ProviderDto GetFromUserContext();
         IEnumerable<ProviderDto> GetAll();
     }
 
@@ -20,25 +20,29 @@ namespace eMuzyka.Services
         private readonly DatabaseContext _dbContext;
         private readonly IMapper _mapper;
         private readonly ILogger<ProviderService> _logger;
+        private readonly IUserContextService _userContextService;
 
-        public ProviderService(DatabaseContext dbContext, IMapper mapper, ILogger<ProviderService> logger)
+        public ProviderService(DatabaseContext dbContext, IMapper mapper, ILogger<ProviderService> logger, IUserContextService userContextService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _logger = logger;
+            _userContextService = userContextService;
         }
-        public ProviderDto GetById(int id)
+        public ProviderDto GetFromUserContext()
         {
             var provider = _dbContext
                 .Providers
                 .Include(r => r.Albums)
-                .FirstOrDefault(r => r.Id == id);
+                .FirstOrDefault(r => r.Id == _userContextService.GetUserId);
 
             if (provider is null) throw new NotFoundException("Provider not found!");
 
             var result = _mapper.Map<ProviderDto>(provider);
             return result;
         }
+
+
 
         public IEnumerable<ProviderDto> GetAll()
         {
