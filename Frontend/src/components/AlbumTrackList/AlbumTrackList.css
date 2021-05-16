@@ -1,0 +1,17 @@
+.albumtracklist table{
+    border-collapse: separate;
+}
+
+.albumtracklist .table thead th {
+    border-radius: 20px ;
+    border: 2px solid #a4202d;
+}
+
+.albumtracklist .table td, .table th {
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.albumtracklist .title{
+    font-weight: bold;
+}

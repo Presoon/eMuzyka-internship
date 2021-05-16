@@ -1,6 +1,6 @@
 import "../assets/css/App.css";
 import API from "../services/APIcontext"
-import AlbumCard from "../components/albumcard/AlbumCard"
+import AlbumCard from "../components/Albumcard/AlbumCard"
 import React, {useEffect, useState} from "react";
 
 const Albums = () => {
@@ -29,7 +29,6 @@ const Albums = () => {
       </div>
       <div className="row justify-content-center">
         {albums && albums.map((album) => {
-          console.log(album);
           return <AlbumCard key={album.id} album={album} />;
         })}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./AlbumCard.css";
 
 const AlbumCard = (props) => {
@@ -6,26 +7,22 @@ const AlbumCard = (props) => {
     <>
       <div className="albumcard">
         <div className="topcontainer">
-          <img
-            className="cover"
-            src="https://www.muzart.pl/images/the-dark-side-of-the-moon-b-iext35454968.jpg"
-            alt="album-cover"
-          />
-          <p className="desc">{props.album.title}</p>
-          <p className="">
+          <img className="cover" src={props.album.cover} alt="album-cover" />
+          <p className="title">{props.album.title}</p>
+          <p>
             Artysta: <strong>{props.album.artistName}</strong>
           </p>
-          <p className="">
-            Data wydania:{" "}
-            <strong>{props.album.releaseDate.substring(0, 4)}</strong>
+          <p>
+            Data wydania:
+            <strong> {props.album.releaseDate.substring(0, 4)}</strong>
           </p>
-          <p className="">
+          <p>
             Wersja: <strong>{props.album.version}</strong>
           </p>
         </div>
 
         <div className="buyrow">
-          <button className="info-btn">SZCZEGÓŁY</button>
+          <Link to={"/albuminfo/" + props.album.id}><button className="info-btn">SZCZEGÓŁY</button></Link>
         </div>
       </div>
     </>

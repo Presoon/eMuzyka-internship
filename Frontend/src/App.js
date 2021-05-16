@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login.js";
 import Logout from "./pages/Logout";
 import Albums from "./pages/Albums";
+import AlbumInfo from "./pages/AlbumInfo";
 
 const App = () => {
   return (
@@ -18,9 +19,10 @@ const App = () => {
         <Navbar />
         <Header />
         <Switch>
-          <Route path="/login" exact component={Login} />
-          <Route path="/logout" exact component={Logout} />
-          <Route path="/albumy" exact component={Albums} />
+          <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/albumy" component={Albums} />
+          <Route path="/albuminfo/:id" component={AlbumInfo} />
           <Route component={NoPage} />
         </Switch>
         <Footer />
