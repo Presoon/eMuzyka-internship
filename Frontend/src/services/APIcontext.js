@@ -6,7 +6,7 @@ const API_URL = "http://localhost:5000/";
 class API {
   //Albums
   getAllAlbums() {
-    return axios.get(API_URL + "Albums/all", { headers: authHeader() });
+    return axios.get(API_URL + "Album/provider", { headers: authHeader() });
   }
 }
 
