@@ -96,7 +96,7 @@ namespace eMuzyka
             });
 
             services.AddHttpContextAccessor();
-            services.AddAutoMapper(this.GetType().Assembly);
+            services.AddAutoMapper(GetType().Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eMuzyka", Version = "v1" });
