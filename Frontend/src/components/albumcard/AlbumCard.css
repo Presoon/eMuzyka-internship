@@ -59,6 +59,11 @@
   font-size: 17pt;
 }
 
+.albumcard .cover {
+    width: 50%;
+    margin: 10px;
+}
+
 
 .albumcard .info-btn {
   font-weight: bold;
