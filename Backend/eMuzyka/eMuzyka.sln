@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eMuzyka", "eMuzyka.csproj", "{CBA8FEAF-2368-445D-AD0F-75CE5B9EE863}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58} = {BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eMuzyka.Domain", "..\eMuzyka.Domain\eMuzyka.Domain.csproj", "{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eMuzyka.Infrastructure", "..\eMuzyka.Infrastructure\eMuzyka.Infrastructure.csproj", "{C9931366-E731-4C18-B81E-9550DE453233}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA8FEAF-2368-445D-AD0F-75CE5B9EE863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA8FEAF-2368-445D-AD0F-75CE5B9EE863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA8FEAF-2368-445D-AD0F-75CE5B9EE863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA8FEAF-2368-445D-AD0F-75CE5B9EE863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC0B6F3E-9C5D-400B-90FC-DBE5A68BBB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9931366-E731-4C18-B81E-9550DE453233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9931366-E731-4C18-B81E-9550DE453233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9931366-E731-4C18-B81E-9550DE453233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9931366-E731-4C18-B81E-9550DE453233}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35CF3BEB-1F1C-41D3-AE10-440DB901DDD6}
+	EndGlobalSection
+EndGlobal
