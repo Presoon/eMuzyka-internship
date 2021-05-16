@@ -12,9 +12,16 @@ const AlbumCard = (props) => {
             alt="album-cover"
           />
           <p className="desc">{props.album.title}</p>
-          <p className="">{props.album.artistName}</p>
-          <p className="">{props.album.releaseDate.substring(0, 4)}</p>
-          <p className="">{props.album.version}</p>
+          <p className="">
+            Artysta: <strong>{props.album.artistName}</strong>
+          </p>
+          <p className="">
+            Data wydania:{" "}
+            <strong>{props.album.releaseDate.substring(0, 4)}</strong>
+          </p>
+          <p className="">
+            Wersja: <strong>{props.album.version}</strong>
+          </p>
         </div>
 
         <div className="buyrow">
