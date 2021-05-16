@@ -23,10 +23,10 @@ namespace eMuzyka.Controllers
 
 
         [HttpGet]
-        [Route("provider/{id}")]
-        public ActionResult<IEnumerable<AlbumDto>> GetAllByProviderId([FromRoute] int id)
+        [Route("provider")]
+        public ActionResult<IEnumerable<AlbumDto>> GetAllByProviderId()
         {
-            var result = _albumService.GetAllByProviderId(id);
+            var result = _albumService.GetAllByProvider();
             return Ok(result);
         }
 

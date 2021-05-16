@@ -18,7 +18,7 @@ namespace eMuzyka.Services
     {
         AlbumDto GetById(int id);
         AlbumWTracksDto GetWithTracksById(int id);
-        IEnumerable<AlbumDto> GetAllByProviderId(int id);
+        IEnumerable<AlbumDto> GetAllByProvider();
     }
 
     public class AlbumService : IAlbumService
@@ -74,10 +74,11 @@ namespace eMuzyka.Services
         }
 
 
-        public IEnumerable<AlbumDto> GetAllByProviderId(int id)
+        public IEnumerable<AlbumDto> GetAllByProvider()
         {
             _logger.LogInformation("Get all Provider's Albums method invoked");
 
+            var id = _userContextService.GetUserId;
             var albums = _dbContext
                 .Albums
                 .Where(r =>r.ProviderId == id)
@@ -87,7 +88,7 @@ namespace eMuzyka.Services
 
 
             var authorizationResult = _authorizationService
-                .AuthorizeAsync(_userContextService.User, id, new ResourceOperationRequirement()).Result;
+                .AuthorizeAsync(_userContextService.User, id ?? 0, new ResourceOperationRequirement()).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException();
 
