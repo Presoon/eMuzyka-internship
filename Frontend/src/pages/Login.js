@@ -16,7 +16,12 @@ const required = (value) => {
 
 class Login extends Component {
   constructor(props) {
+    
     super(props);
+    if (AuthService.getCurrentUser() != null) {
+      this.props.history.push("/");
+      window.location.reload();
+    }
     this.handleLogin = this.handleLogin.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);

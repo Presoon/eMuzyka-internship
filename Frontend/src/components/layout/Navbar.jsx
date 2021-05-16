@@ -36,7 +36,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               className="nav-link navlink"
-              to="/albumy"
+              to="/albums"
               activeClassName="selectedd"
             >
               Twoje Albumy
@@ -45,7 +45,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               className="nav-link navlink "
-              to="/rejestracja"
+              to="/register-album"
               activeClassName="selectedd"
             >
               Rejestracja albumu
@@ -54,10 +54,10 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               className="nav-link navlink "
-              to="/kontakt"
+              to="/profile"
               activeClassName="selectedd"
             >
-              Kontakt
+              Profil
             </NavLink>
           </li>
           {user === null ? (

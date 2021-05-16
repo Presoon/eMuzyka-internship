@@ -14,6 +14,11 @@ class API {
       headers: authHeader(),
     });
   }
+
+
+  //Provider functions
+
+  
 }
 
 export default new API();
