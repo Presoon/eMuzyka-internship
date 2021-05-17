@@ -1,4 +1,5 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import userAuth from "./services/auth.service.js"
 import "./assets/css/App.css";
 import React from "react";
 
@@ -18,6 +19,7 @@ import RegisterAlbum from "./pages/RegisterAlbum";
 import Profile from "./pages/Profile";
 
 const App = () => {
+  const user = userAuth.getCurrentUser();
   return (
     <div className="body-app">
       <BrowserRouter>
@@ -27,10 +29,27 @@ const App = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
-          <Route path="/albums" component={Albums} />
-          <Route path="/albuminfo/:id" component={AlbumInfo} />
-          <Route path="/register-album" component={RegisterAlbum} />
-          <Route path="/profile" component={Profile} />
+          {user != null ? (
+            <Route path="/albums" component={Albums} />
+          ) : (
+            <Redirect to="/login" />
+          )}
+          {user != null ? (
+            <Route path="/albuminfo/:id" component={AlbumInfo} />
+          ) : (
+            <Redirect to="/login" />
+          )}
+          {user != null ? (
+            <Route path="/register-album" component={RegisterAlbum} />
+          ) : (
+            <Redirect to="/login" />
+          )}
+          {user != null ? (
+            <Route path="/profile" component={Profile} />
+          ) : (
+            <Redirect to="/login" />
+          )}
+
           <Route component={NoPage} />
         </Switch>
         <Footer />

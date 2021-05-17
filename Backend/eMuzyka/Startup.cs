@@ -91,7 +91,7 @@ namespace eMuzyka
                 options.AddPolicy("FrontendClient", builder =>
                     builder.AllowAnyMethod()
                         .AllowAnyHeader()
-                        .AllowAnyOrigin()
+                        .WithOrigins("https://emuzyka.azurewebsites.net")
                     );
             });
 
