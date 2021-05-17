@@ -9,9 +9,14 @@ Application implemented for an internship recruitment process (EUVIC).
 
 A web application that allows the company's partners to manage their music albums and view information about them. 
 
+Each segment of the project was deployed to the Azure cloud (including SQL Database).
 
-Live Demo: [emuzyka.azurewebsites.net/](https://emuzyka.azurewebsites.net/)
- 
+
+Links:
+
+Live Demo: [emuzyka.azurewebsites.net](https://emuzyka.azurewebsites.net/)
+
+REST API: [api-emuzyka.azurewebsites.net](https://api-emuzyka.azurewebsites.net/)
 
 
 
