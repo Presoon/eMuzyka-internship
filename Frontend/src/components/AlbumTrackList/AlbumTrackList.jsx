@@ -8,7 +8,7 @@ const AlbumTrackList = (props) => {
     var s = Math.floor((d % 3600) % 60);
     
     var mDisplay = m > 0 ? m + ":" : "";
-    var sDisplay = s > 0 ? s : "";
+    var sDisplay = s > 0 ? s >= 10 ? s : "0" + s : "00";
     return mDisplay + sDisplay;
   };
   const { tracks } = props;
